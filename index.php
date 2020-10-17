@@ -233,6 +233,14 @@ switch (ENVIRONMENT)
 	// The path to the "application" folder
 	if (is_dir($application_folder))
 	{
+	// The name of THIS file
+	define('SELF', pathinfo(__FILE__, PATHINFO_BASENAME));
+
+	// Path to the system folder
+	define('BASEPATH', str_replace('\\', '/', $system_path));
+
+	// Path to the front controller (this file)
+	define('FCPATH', dirname(__FILE__).'/');
 		if (($_temp = realpath($application_folder)) !== FALSE)
 		{
 			$application_folder = $_temp;
